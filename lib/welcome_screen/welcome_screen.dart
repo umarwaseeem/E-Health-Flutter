@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../login/login_screen.dart';
 import '../util/colors.dart';
+import '../util/input_field.dart';
 import 'widgets/get_started_button.dart';
 import 'widgets/box_with_image.dart';
-import 'widgets/email_field.dart';
 import 'widgets/text1.dart';
 import 'widgets/text2.dart';
 import 'widgets/top_right_ellipse.dart';
@@ -11,14 +12,10 @@ import 'widgets/top_right_ellipse.dart';
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
 
+  static const routeName = "wellcome_screen";
+
   @override
   Widget build(BuildContext context) {
-    var getStartedButtonTextStyle = const TextStyle(
-      color: Colors.white,
-      fontFamily: "Inter",
-      fontSize: 20.0,
-      fontWeight: FontWeight.w700,
-    );
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return SafeArea(
@@ -33,8 +30,24 @@ class WelcomeScreen extends StatelessWidget {
                   Text1(height: height, width: width),
                   Text2(width: width, height: height),
                   BoxWithImage(height: height, width: width),
-                  EmailField(width: width, height: height),
-                  GetStartedButton(width: width, height: height),
+                  Container(
+                    width: width * 0.89,
+                    height: height * 0.06,
+                    margin: EdgeInsets.only(
+                      left: width * 0.05,
+                      right: width * 0.05,
+                      top: 0.07 * height,
+                    ),
+                    child:
+                        const InputField(hint: "abc@gmail.com", label: "Email"),
+                  ),
+                  GetStartedButton(
+                    width: width,
+                    height: height,
+                    onPress: () {
+                      Navigator.pushNamed(context, LoginScreen.routeName);
+                    },
+                  ),
                 ],
               ),
             ],
@@ -44,4 +57,3 @@ class WelcomeScreen extends StatelessWidget {
     );
   }
 }
-

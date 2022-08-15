@@ -7,11 +7,12 @@ class GetStartedButton extends StatelessWidget {
   const GetStartedButton({
     Key? key,
     required this.width,
-    required this.height,
+    required this.height, required this.onPress,
   }) : super(key: key);
 
   final double width;
   final double height;
+  final Function onPress;
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +32,11 @@ class GetStartedButton extends StatelessWidget {
         bottom: 10,
       ),
       child: Button1(
+        onPress: onPress,
         textStyle: getStartedButtonTextStyle,
         buttonColor: getStartedButtonColor,
         text: 'Get Started',
+        borderRadius: 8,
       ),
     );
   }

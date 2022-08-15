@@ -1,9 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../util/colors.dart';
+import '../welcome_screen/welcome_screen.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(const Duration(seconds: 3), () {
+      Navigator.pushReplacementNamed(context, WelcomeScreen.routeName);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,36 +33,51 @@ class SplashScreen extends StatelessWidget {
       height: 0,
     );
 
+    // ScreenUtil.init(
+    //   context,
+    //   designSize: const Size(375, 926),
+    // );
+
     return SafeArea(
-      child: Scaffold(
-        backgroundColor: mainColor,
-        body: Container(
-          margin: EdgeInsets.only(
-            left: width * 0.07,
-            right: width * 0.15,
-            top: 200,
-          ),
-          height: height,
-          width: width,
-          child: Row(
-            children: [
-              Image.asset(
-                "assets/images/steth.png",
+      child: ScreenUtilInit(
+        designSize: const Size(428, 926),
+        builder: (context, widget) => Scaffold(
+          backgroundColor: mainColor,
+          body: SingleChildScrollView(
+            child: Container(
+              margin: EdgeInsets.only(
+                left: 35.w, // 35
+                right: 70.w, // 70
+                top: 300.h, // 20
               ),
-              SizedBox(width: width * 0.03),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
+              height: height,
+              width: width,
+              child: Column(
                 children: [
-                  Text("ADERIS", style: splashTextStyle),
-                  Text("HEALTH", style: splashTextStyle),
-                  Container(
-                    margin: const EdgeInsets.only(top: 100, bottom: 50),
-                    child: Image.asset("assets/images/small-steth.png"),
+                  Row(
+                    children: [
+                      Image.asset(
+                        "assets/images/steth.png",
+                      ),
+                      SizedBox(width: width * 0.03),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("ADERIS", style: splashTextStyle),
+                          Text("HEALTH", style: splashTextStyle),
+                          Container(
+                            margin: EdgeInsets.only(top: 100.h, bottom: 50.h),
+                            child: Image.asset("assets/images/small-steth.png"),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
+                  const Center(child: CircularProgressIndicator()),
                 ],
               ),
-            ],
+            ),
           ),
         ),
       ),
