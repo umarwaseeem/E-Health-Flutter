@@ -5,6 +5,7 @@ import 'package:aderis_health/util/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../forgot_password/forgot_password_screen.dart';
 import '../signup/signup.dart';
 import '../util/input_field.dart';
 
@@ -37,7 +38,7 @@ class LoginScreen extends StatelessWidget {
                           Navigator.pop(context);
                         },
                       ),
-                      SizedBox(height: 30.h),
+                      SizedBox(height: 5.h),
                       Text("  Login\n  into Your Account",
                           style: textTheme.headline1),
                     ],
@@ -51,16 +52,18 @@ class LoginScreen extends StatelessWidget {
                   width: 390.w,
                   child: const InputField(
                     hint: "Email",
-                    label: "",
+                    label: "Email",
                   ),
                 ),
                 SizedBox(height: 32.h),
                 SizedBox(
                   height: 50.h,
                   width: 390.w,
-                  child: const InputField(
+                  child: InputField(
                     hint: "Password",
-                    label: "",
+                    label: "Password",
+                    suffixIcon:
+                        TextButton(child: const Text("Show"), onPressed: () {}),
                   ),
                 ),
                 const CheckBoxWidget(text: "Remember Me"),
@@ -89,7 +92,12 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 16.h),
-                Text("Forgot Your Password", style: textTheme.bodyText1),
+                TextButton(
+                    child: Text("Forgot Your Password",
+                        style: textTheme.bodyText1),
+                    onPressed: () {
+                      Navigator.pushNamed(context, ForgotPasswordScreen.routeName);
+                    }),
                 SizedBox(height: 30.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

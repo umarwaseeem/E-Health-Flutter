@@ -3,6 +3,7 @@ import 'package:aderis_health/util/input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../forgot_password/forgot_password_screen.dart';
 import '../login/login_screen.dart';
 import '../util/button1.dart';
 import '../util/colors.dart';
@@ -59,10 +60,12 @@ class SignUpScreen extends StatelessWidget {
                   SizedBox(height: 14.h),
                   const InputField(hint: "Zip Code", label: "Zip Code"),
                   SizedBox(height: 14.h),
-                  const InputField(
+                  InputField(
                     hint: "How did you hear about us?",
                     label: "How did you hear about us?",
-                    suffixIcon: Icons.keyboard_arrow_down,
+                    suffixIcon: IconButton(
+                        icon: const Icon(Icons.keyboard_arrow_down),
+                        onPressed: () {}),
                   ),
                   SizedBox(height: 5.h),
                   SizedBox(
@@ -99,7 +102,14 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 16.h),
-                  Text("Forgot Your Password", style: textTheme.bodyText1),
+                  TextButton(
+                    child: Text("Forgot Your Password",
+                        style: textTheme.bodyText1),
+                    onPressed: () {
+                      Navigator.pushNamed(
+                          context, ForgotPasswordScreen.routeName);
+                    },
+                  ),
                 ],
               ),
             ),

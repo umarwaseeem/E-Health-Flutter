@@ -1,6 +1,7 @@
 import 'package:aderis_health/util/colors.dart';
 import 'package:flutter/material.dart';
 
+import 'forgot_password/forgot_password_screen.dart';
 import 'login/login_screen.dart';
 import 'signup/signup.dart';
 import 'splash_screen/splash_screen.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         LoginScreen.routeName: (context) => const LoginScreen(),
         WelcomeScreen.routeName: (context) => const WelcomeScreen(),
         SignUpScreen.routeName: (context) => const SignUpScreen(),
+        ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
       },
     );
   }

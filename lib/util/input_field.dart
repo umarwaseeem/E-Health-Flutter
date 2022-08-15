@@ -4,13 +4,15 @@ class InputField extends StatefulWidget {
   const InputField({
     Key? key,
     this.suffixIcon,
+    this.obscure,
     required this.hint,
     required this.label,
   }) : super(key: key);
 
   final String hint;
   final String label;
-  final IconData? suffixIcon;
+  final Widget? suffixIcon;
+  final bool? obscure;
 
   @override
   State<InputField> createState() => _InputFieldState();
@@ -22,13 +24,9 @@ class _InputFieldState extends State<InputField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: widget.obscure ?? false,
       decoration: InputDecoration(
-        suffixIcon: IconButton(
-            icon: Icon(
-              widget.suffixIcon,
-              color: const Color.fromARGB(255, 122, 100, 100),
-            ),
-            onPressed: () {}),
+        suffixIcon: widget.suffixIcon,
         hintText: widget.hint,
         labelText: widget.label,
         fillColor: Colors.white,

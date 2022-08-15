@@ -69,3 +69,16 @@ TextTheme textTheme = const TextTheme(
     color: Colors.black,
   ),
 );
+
+var titleStyle = const TextStyle(
+  color: Colors.blueGrey,
+  fontSize: 14,
+  fontWeight: FontWeight.w400,
+  fontFamily: "Poppins",
+);
+var subtitleStyle = const TextStyle(
+  color: Colors.black,
+  fontSize: 16,
+  fontWeight: FontWeight.w400,
+  fontFamily: "Poppins",
+);
