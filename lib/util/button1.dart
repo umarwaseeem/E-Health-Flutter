@@ -13,7 +13,7 @@ class Button1 extends StatelessWidget {
   final Color buttonColor;
   final String text;
   final double borderRadius;
-  final Function onPress;
+  final VoidCallback? onPress;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +24,8 @@ class Button1 extends StatelessWidget {
         ),
         backgroundColor: buttonColor,
       ),
-      onPressed: () {
-        onPress();
+      onPressed: onPress == null ? null :() {
+        onPress!();
       },
       child: Text(
         text,

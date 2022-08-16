@@ -1,11 +1,12 @@
-import 'package:aderis_health/forgot_password/widgets/password_reset_method.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 import '../util/button1.dart';
 import '../util/colors.dart';
 import '../util/text_styles.dart';
-import 'reset_by_sms/reset_by_sms_screen.dart';
+import 'providers/forgot_password_provider.dart';
+import 'reset_by_sms_screen/reset_by_sms_screen.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   const ForgotPasswordScreen({Key? key}) : super(key: key);
@@ -14,6 +15,7 @@ class ForgotPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final forgotPasswordData = Provider.of<ForgotPasswordProvider>(context);
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -47,17 +49,9 @@ class ForgotPasswordScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 20.h),
-                  const PasswordResetMethod(
-                    image: "assets/images/msg-icon.png",
-                    title: "Via SMS",
-                    subtitle: "+11 11*****11",
-                  ),
+                  forgotPasswordData.passwordResetMethods[0],
                   SizedBox(height: 20.h),
-                  const PasswordResetMethod(
-                    image: "assets/images/mail-icon.png",
-                    title: "Via Email",
-                    subtitle: "abc@gmail.com",
-                  ),
+                  forgotPasswordData.passwordResetMethods[1],
                   SizedBox(height: 60.h),
                   Container(
                     height: 51.h,
@@ -76,13 +70,19 @@ class ForgotPasswordScreen extends StatelessWidget {
                     ),
                     child: Button1(
                       textStyle: textTheme.button!,
-                      buttonColor: button2Color,
+                      buttonColor: forgotPasswordData.checkIfAllSelected()
+                          ? button2Color
+                          : Colors.grey,
                       text: "Continue",
                       borderRadius: 30,
-                      onPress: () {
-                        Navigator.pushNamed(
-                            context, ResetBySmsScreen.routeName);
-                      },
+                      onPress: forgotPasswordData.checkIfAllSelected()
+                          ? () {
+                              Navigator.pushNamed(
+                                context,
+                                ResetBySmsScreen.routeName,
+                              );
+                            }
+                          : null,
                     ),
                   ),
                 ],

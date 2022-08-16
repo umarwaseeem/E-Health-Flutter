@@ -71,7 +71,7 @@ TextTheme textTheme = const TextTheme(
 );
 
 var titleStyle = const TextStyle(
-  color: Colors.blueGrey,
+  color: Colors.black,
   fontSize: 14,
   fontWeight: FontWeight.w400,
   fontFamily: "Poppins",
