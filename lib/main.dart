@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'add_insurance_screen/add_insurance_screen.dart';
 import 'create_new_password/create_new_pass_screen.dart';
+import 'create_profile/create_profile_screen.dart';
 import 'forgot_password/forgot_password_screen.dart';
 import 'forgot_password/providers/forgot_password_provider.dart';
 import 'forgot_password/reset_by_sms_screen/reset_by_sms_screen.dart';
@@ -37,17 +39,17 @@ class MyApp extends StatelessWidget {
           backgroundColor: mainColor,
           primarySwatch: Colors.blue,
         ),
-        home: const SplashScreen(),
+        home: const CreateProfileScreen(),
         routes: {
           LoginScreen.routeName: (context) => const LoginScreen(),
           WelcomeScreen.routeName: (context) => const WelcomeScreen(),
           SignUpScreen.routeName: (context) => const SignUpScreen(),
-          ForgotPasswordScreen.routeName: (context) =>
-              const ForgotPasswordScreen(),
+          ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
           ResetBySmsScreen.routeName: (context) => const ResetBySmsScreen(),
-          CreateNewPassScreen.routeName: (context) =>
-              const CreateNewPassScreen(),
+          CreateNewPassScreen.routeName: (context) => const CreateNewPassScreen(),
           HomePageScreen.routeName: (context) => const HomePageScreen(),
+          CreateProfileScreen.routeName: (context) =>const CreateProfileScreen(),
+          AddInsuranceScreen.routeName: (context) => const AddInsuranceScreen(),
         },
       ),
     );

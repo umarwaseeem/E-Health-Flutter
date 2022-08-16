@@ -32,7 +32,7 @@ class _InputFieldState extends State<InputField> {
         suffixIcon: widget.suffixIcon,
         hintText: widget.hint,
         labelText: widget.label,
-        fillColor: Colors.white,
+        fillColor: const Color.fromRGBO(232, 232, 232, 1),
         filled: true,
         labelStyle: const TextStyle(
           color: Colors.grey,
@@ -41,11 +41,11 @@ class _InputFieldState extends State<InputField> {
           fontWeight: FontWeight.w700,
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.grey),
+          borderSide: const BorderSide(color: Colors.black12),
           borderRadius: BorderRadius.circular(10),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.grey),
+          borderSide: const BorderSide(color: Colors.black12),
           borderRadius: BorderRadius.circular(14),
         ),
       ),
