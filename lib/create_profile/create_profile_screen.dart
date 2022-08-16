@@ -18,9 +18,12 @@ class CreateProfileScreen extends StatelessWidget {
       child: Scaffold(
         body: SingleChildScrollView(
           child: ScreenUtilInit(
-            designSize: const Size(428, 926),
+            designSize: Size(
+              MediaQuery.of(context).size.width,
+              MediaQuery.of(context).size.height,
+            ),
             builder: (context, widget) => Container(
-              margin: EdgeInsets.only(left: 30.w, right: 30.w, top: 40.h),
+              margin: EdgeInsets.only(left: 30.w, right: 30.w, top: 20.h),
               child: Column(
                 children: [
                   Row(
@@ -33,7 +36,6 @@ class CreateProfileScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 30.h),
                   Container(
                     margin: EdgeInsets.only(top: 30.h, bottom: 20.h),
                     height: 170.h,
@@ -133,8 +135,8 @@ class CreateProfileScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 30.h),
                   Container(
-                    height: 60.h,
-                    width: 370.w,
+                    height: 52.h,
+                    width: 300.w,
                     decoration: BoxDecoration(
                       // apply shadow to the container
                       boxShadow: [
@@ -157,6 +159,7 @@ class CreateProfileScreen extends StatelessWidget {
                               context, AddInsuranceScreen.routeName);
                         }),
                   ),
+                  SizedBox(height: 28.h),
                 ],
               ),
             ),
