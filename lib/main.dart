@@ -1,11 +1,14 @@
-import 'package:aderis_health/util/colors.dart';
 import 'package:flutter/material.dart';
 
+import 'create_new_password/create_new_pass_screen.dart';
 import 'forgot_password/forgot_password_screen.dart';
+import 'forgot_password/reset_by_sms/reset_by_sms_screen.dart';
+import 'home_page/home_page.dart';
 import 'login/login_screen.dart';
 import 'signup/signup.dart';
 import 'splash_screen/splash_screen.dart';
 import 'welcome_screen/welcome_screen.dart';
+import 'util/colors.dart';
 
 void main() {
   // runApp(
@@ -31,7 +34,11 @@ class MyApp extends StatelessWidget {
         LoginScreen.routeName: (context) => const LoginScreen(),
         WelcomeScreen.routeName: (context) => const WelcomeScreen(),
         SignUpScreen.routeName: (context) => const SignUpScreen(),
-        ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
+        ForgotPasswordScreen.routeName: (context) =>
+            const ForgotPasswordScreen(),
+        ResetBySmsScreen.routeName: (context) => const ResetBySmsScreen(),
+        CreateNewPassScreen.routeName: (context) => const CreateNewPassScreen(),
+        HomePageScreen.routeName: (context) => const HomePageScreen(),
       },
     );
   }

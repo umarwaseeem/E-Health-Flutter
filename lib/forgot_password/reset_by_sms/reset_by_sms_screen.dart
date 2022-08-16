@@ -1,16 +1,16 @@
-import 'package:aderis_health/forgot_password/widgets/password_reset_method.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../util/button1.dart';
-import '../util/colors.dart';
-import '../util/text_styles.dart';
-import 'reset_by_sms/reset_by_sms_screen.dart';
+import '../../create_new_password/create_new_pass_screen.dart';
+import '../../util/button1.dart';
+import '../../util/colors.dart';
+import '../../util/text_styles.dart';
+import 'widgets/sms_code_widget.dart';
 
-class ForgotPasswordScreen extends StatelessWidget {
-  const ForgotPasswordScreen({Key? key}) : super(key: key);
+class ResetBySmsScreen extends StatelessWidget {
+  const ResetBySmsScreen({Key? key}) : super(key: key);
 
-  static const routeName = "forgot_password_screen";
+  static const routeName = "reset_by_sms_screen";
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +36,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 50.h),
-                  Image.asset("assets/images/forgot-pass.png"),
                   const Text(
-                    "Select which contact details should we use to reset your password",
+                    "Code has been sent on +11100****119",
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 16,
@@ -46,19 +45,30 @@ class ForgotPasswordScreen extends StatelessWidget {
                       fontFamily: "Poppins",
                     ),
                   ),
-                  SizedBox(height: 20.h),
-                  const PasswordResetMethod(
-                    image: "assets/images/msg-icon.png",
-                    title: "Via SMS",
-                    subtitle: "+11 11*****11",
+                  SizedBox(height: 90.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const SmsCodeWidget(),
+                      SizedBox(width: 20.w),
+                      const SmsCodeWidget(),
+                      SizedBox(width: 20.w),
+                      const SmsCodeWidget(),
+                      SizedBox(width: 20.w),
+                      const SmsCodeWidget(),
+                    ],
                   ),
-                  SizedBox(height: 20.h),
-                  const PasswordResetMethod(
-                    image: "assets/images/mail-icon.png",
-                    title: "Via Email",
-                    subtitle: "abc@gmail.com",
+                  SizedBox(height: 90.h),
+                  const Text(
+                    "Resend in 55s",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      fontFamily: "Poppins",
+                    ),
                   ),
-                  SizedBox(height: 60.h),
+                  SizedBox(height: 300.h),
                   Container(
                     height: 51.h,
                     width: 390.w,
@@ -77,11 +87,11 @@ class ForgotPasswordScreen extends StatelessWidget {
                     child: Button1(
                       textStyle: textTheme.button!,
                       buttonColor: button2Color,
-                      text: "Continue",
+                      text: "Verify",
                       borderRadius: 30,
                       onPress: () {
                         Navigator.pushNamed(
-                            context, ResetBySmsScreen.routeName);
+                            context, CreateNewPassScreen.routeName);
                       },
                     ),
                   ),
