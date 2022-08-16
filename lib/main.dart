@@ -1,7 +1,11 @@
+import 'package:aderis_health/prefered_pharmacy_screen/preffered_pharmacy_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'add_insurance_screen/add_insurance_screen.dart';
+import 'add_insurance_screen/insurance_cards_screen.dart';
+import 'address_screen/address_screen.dart';
+import 'address_screen/providers/address_card_provider.dart';
 import 'create_new_password/create_new_pass_screen.dart';
 import 'create_profile/create_profile_screen.dart';
 import 'forgot_password/forgot_password_screen.dart';
@@ -31,6 +35,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<ForgotPasswordProvider>(
           create: (_) => ForgotPasswordProvider(),
         ),
+        ChangeNotifierProvider<AddressCardProvider>(
+          create: (_) => AddressCardProvider(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -50,6 +57,9 @@ class MyApp extends StatelessWidget {
           HomePageScreen.routeName: (context) => const HomePageScreen(),
           CreateProfileScreen.routeName: (context) =>const CreateProfileScreen(),
           AddInsuranceScreen.routeName: (context) => const AddInsuranceScreen(),
+          InsuranceCardsScreen.routeName: (context) => const InsuranceCardsScreen(),
+          AddressScreen.routeName: (context) => const AddressScreen(),
+          PrefferedPharmacyScreen.routeName: (context) => const PrefferedPharmacyScreen(),
         },
       ),
     );
