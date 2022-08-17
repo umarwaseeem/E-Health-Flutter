@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 
 import 'add_insurance_screen/add_insurance_screen.dart';
 import 'add_insurance_screen/insurance_cards_screen.dart';
+import 'add_payment_method/add_payment_method_screen.dart';
+import 'add_payment_method/providers/payment_method_provider.dart';
 import 'address_screen/address_screen.dart';
 import 'address_screen/providers/address_card_provider.dart';
 import 'create_new_password/create_new_pass_screen.dart';
@@ -38,6 +40,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<AddressCardProvider>(
           create: (_) => AddressCardProvider(),
         ),
+        ChangeNotifierProvider<PaymentMethodProvider>(
+          create: (_) => PaymentMethodProvider(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -60,6 +65,7 @@ class MyApp extends StatelessWidget {
           InsuranceCardsScreen.routeName: (context) => const InsuranceCardsScreen(),
           AddressScreen.routeName: (context) => const AddressScreen(),
           PrefferedPharmacyScreen.routeName: (context) => const PrefferedPharmacyScreen(),
+          AddPaymentMethodScreen.routeName: (context) => const AddPaymentMethodScreen(),
         },
       ),
     );

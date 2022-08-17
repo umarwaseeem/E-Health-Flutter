@@ -2,6 +2,7 @@ import 'package:aderis_health/util/input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../add_payment_method/add_payment_method_screen.dart';
 import '../util/button1.dart';
 import '../util/colors.dart';
 import '../util/text_styles.dart';
@@ -75,7 +76,9 @@ class PrefferedPharmacyScreen extends StatelessWidget {
                         buttonColor: button2Color,
                         text: "Skip And Continue",
                         borderRadius: 30,
-                        onPress: () {},
+                        onPress: () {
+                          Navigator.pushNamed(context, AddPaymentMethodScreen.routeName );
+                        },
                       ),
                     ),
                   ],
