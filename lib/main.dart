@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers:  [
+      providers: [
         ChangeNotifierProvider<ForgotPasswordProvider>(
           create: (_) => ForgotPasswordProvider(),
         ),
@@ -64,20 +64,29 @@ class MyApp extends StatelessWidget {
           LoginScreen.routeName: (context) => const LoginScreen(),
           WelcomeScreen.routeName: (context) => const WelcomeScreen(),
           SignUpScreen.routeName: (context) => const SignUpScreen(),
-          ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
+          ForgotPasswordScreen.routeName: (context) =>
+              const ForgotPasswordScreen(),
           ResetBySmsScreen.routeName: (context) => const ResetBySmsScreen(),
-          CreateNewPassScreen.routeName: (context) => const CreateNewPassScreen(),
+          CreateNewPassScreen.routeName: (context) =>
+              const CreateNewPassScreen(),
           HomePageScreen.routeName: (context) => const HomePageScreen(),
-          CreateProfileScreen.routeName: (context) =>const CreateProfileScreen(),
+          CreateProfileScreen.routeName: (context) =>
+              const CreateProfileScreen(),
           AddInsuranceScreen.routeName: (context) => const AddInsuranceScreen(),
-          InsuranceCardsScreen.routeName: (context) => const InsuranceCardsScreen(),
+          InsuranceCardsScreen.routeName: (context) =>
+              const InsuranceCardsScreen(),
           AddressScreen.routeName: (context) => const AddressScreen(),
-          PrefferedPharmacyScreen.routeName: (context) => const PrefferedPharmacyScreen(),
-          AddPaymentMethodScreen.routeName: (context) => const AddPaymentMethodScreen(),
+          PrefferedPharmacyScreen.routeName: (context) =>
+              const PrefferedPharmacyScreen(),
+          AddPaymentMethodScreen.routeName: (context) =>
+              const AddPaymentMethodScreen(),
           VerificationScreen.routeName: (context) => const VerificationScreen(),
-          VerificationIdScreen.routeName: (context) => const VerificationIdScreen(),
-          VerificationDriverScreen.routeName: (context) => const VerificationDriverScreen(),
-          VerificationPassportScreen.routeName: (context) => const VerificationPassportScreen(),
+          VerificationIdScreen.routeName: (context) =>
+              const VerificationIdScreen(),
+          VerificationDriverScreen.routeName: (context) =>
+              const VerificationDriverScreen(),
+          VerificationPassportScreen.routeName: (context) =>
+              const VerificationPassportScreen(),
         },
       ),
     );

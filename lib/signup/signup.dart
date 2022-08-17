@@ -1,12 +1,11 @@
 import 'package:aderis_health/login/widgets/checkbox.dart';
+import 'package:aderis_health/util/button2.dart';
 import 'package:aderis_health/util/input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../forgot_password/forgot_password_screen.dart';
 import '../login/login_screen.dart';
-import '../util/button1.dart';
-import '../util/colors.dart';
 import '../util/text_styles.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -79,27 +78,9 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 100.h),
-                  Container(
-                    height: 51.h,
+                  SizedBox(
                     width: 390.w,
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          spreadRadius: 1,
-                          blurRadius: 10,
-                          // shadow on botom and right
-                          offset: const Offset(0, 5),
-                        ),
-                      ],
-                    ),
-                    child: Button1(
-                      textStyle: textTheme.button!,
-                      buttonColor: button2Color,
-                      text: "Login",
-                      borderRadius: 30,
-                      onPress: () {},
-                    ),
+                    child: Button2(text: "SignUp", onPress: () {}),
                   ),
                   SizedBox(height: 16.h),
                   TextButton(
