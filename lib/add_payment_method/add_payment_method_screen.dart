@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import '../util/button2.dart';
 import '../util/input_field.dart';
 import '../util/text_styles.dart';
+import '../verification_screen/verification_screen.dart';
 
 class AddPaymentMethodScreen extends StatelessWidget {
   const AddPaymentMethodScreen({Key? key}) : super(key: key);
@@ -183,7 +184,13 @@ class AddPaymentMethodScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 50.h),
-                      const Button2(text: "Skip And Continue"),
+                      Button2(
+                        text: "Skip And Continue",
+                        onPress: () {
+                          Navigator.pushNamed(
+                              context, VerificationScreen.routeName);
+                        },
+                      ),
                     ],
                   ),
                 ),

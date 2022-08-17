@@ -9,9 +9,11 @@ class Button2 extends StatelessWidget {
   const Button2({
     Key? key,
     required this.text,
+    required this.onPress,
   }) : super(key: key);
 
   final String text;
+  final VoidCallback onPress;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,9 @@ class Button2 extends StatelessWidget {
           buttonColor: button2Color,
           text: text,
           borderRadius: 30,
-          onPress: () {},
+          onPress: () {
+            onPress();
+          },
         ),
       ),
     );

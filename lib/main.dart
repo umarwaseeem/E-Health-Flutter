@@ -17,6 +17,8 @@ import 'home_page/home_page.dart';
 import 'login/login_screen.dart';
 import 'signup/signup.dart';
 import 'splash_screen/splash_screen.dart';
+import 'verification_screen/providers/id_verification_provide.dart';
+import 'verification_screen/verification_screen.dart';
 import 'welcome_screen/welcome_screen.dart';
 import 'util/colors.dart';
 
@@ -43,6 +45,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<PaymentMethodProvider>(
           create: (_) => PaymentMethodProvider(),
         ),
+        ChangeNotifierProvider<IdVerificationProvider>(
+          create: (_) => IdVerificationProvider(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -66,6 +71,7 @@ class MyApp extends StatelessWidget {
           AddressScreen.routeName: (context) => const AddressScreen(),
           PrefferedPharmacyScreen.routeName: (context) => const PrefferedPharmacyScreen(),
           AddPaymentMethodScreen.routeName: (context) => const AddPaymentMethodScreen(),
+          VerificationScreen.routeName: (context) => const VerificationScreen(),
         },
       ),
     );
