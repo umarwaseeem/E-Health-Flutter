@@ -17,7 +17,10 @@ import 'home_page/home_page.dart';
 import 'login/login_screen.dart';
 import 'signup/signup.dart';
 import 'splash_screen/splash_screen.dart';
-import 'verification_screen/providers/id_verification_provide.dart';
+import 'verification_screen/providers/id_verification_provider.dart';
+import 'verification_screen/verification_driver_screen.dart';
+import 'verification_screen/verification_id_screen.dart';
+import 'verification_screen/verification_passport_screen.dart';
 import 'verification_screen/verification_screen.dart';
 import 'welcome_screen/welcome_screen.dart';
 import 'util/colors.dart';
@@ -72,6 +75,9 @@ class MyApp extends StatelessWidget {
           PrefferedPharmacyScreen.routeName: (context) => const PrefferedPharmacyScreen(),
           AddPaymentMethodScreen.routeName: (context) => const AddPaymentMethodScreen(),
           VerificationScreen.routeName: (context) => const VerificationScreen(),
+          VerificationIdScreen.routeName: (context) => const VerificationIdScreen(),
+          VerificationDriverScreen.routeName: (context) => const VerificationDriverScreen(),
+          VerificationPassportScreen.routeName: (context) => const VerificationPassportScreen(),
         },
       ),
     );

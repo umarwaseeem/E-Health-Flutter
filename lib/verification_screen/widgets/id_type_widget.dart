@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import '../../util/colors.dart';
-import '../providers/id_verification_provide.dart';
+import '../providers/id_verification_provider.dart';
 
 class IdTypeWidget extends StatefulWidget {
   IdTypeWidget({

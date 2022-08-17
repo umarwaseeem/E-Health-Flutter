@@ -5,7 +5,7 @@ import '../address_screen/address_screen.dart';
 import '../util/button1.dart';
 import '../util/colors.dart';
 import '../util/text_styles.dart';
-import 'widgets/card_upload.dart';
+import '../util/card_upload.dart';
 
 class InsuranceCardsScreen extends StatelessWidget {
   const InsuranceCardsScreen({Key? key}) : super(key: key);

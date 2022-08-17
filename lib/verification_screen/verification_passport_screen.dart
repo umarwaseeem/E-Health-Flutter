@@ -1,17 +1,16 @@
-import 'package:aderis_health/login/widgets/checkbox.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
 
 import '../util/button2.dart';
+import '../util/card_upload.dart';
 import '../util/text_styles.dart';
-import 'providers/id_verification_provider.dart';
-import 'verification_id_screen.dart';
+import '../util/upload_bottom_sheet.dart';
 
-class VerificationScreen extends StatelessWidget {
-  const VerificationScreen({Key? key}) : super(key: key);
+class VerificationPassportScreen extends StatelessWidget {
+  const VerificationPassportScreen({Key? key}) : super(key: key);
 
-  static const routeName = "verification_screen";
+  static const routeName = "verification_passport_screen";
 
   @override
   Widget build(BuildContext context) {
@@ -41,48 +40,47 @@ class VerificationScreen extends StatelessWidget {
                           ),
                           SizedBox(width: 10.w),
                           Text(
-                            "Verification",
+                            "Verification\nPassport",
                             style: textTheme.headline1,
                           ),
                         ],
                       ),
-                      SizedBox(height: 30.h),
-                      Image.asset("assets/images/verification.png"),
-                      SizedBox(height: 20.h),
+                      SizedBox(height: 50.h),
                       const Text(
-                        "Click the type of ID will you using?",
+                        "If you only have a digital image please take a photo or screenshot and upload it here.",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(height: 18.h),
-                      Consumer<IdVerificationProvider>(
-                        builder: (context, data, child) => Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            data.idTypes[0],
-                            data.idTypes[1],
-                            data.idTypes[2],
-                          ],
-                        ),
+                      SizedBox(height: 30.h),
+                      InkWell(
+                        onTap: () {
+                          showCupertinoModalPopup(
+                            barrierColor: Colors.black.withOpacity(0.7),
+                            context: context,
+                            builder: (context) {
+                              return const UploadBottomSheet();
+                            },
+                          );
+                        },
+                        child: const CardUpload(title: "Front Of Document"),
                       ),
-                      SizedBox(height: 28.h),
-                      const CheckBoxWidget(
-                          text: "I don’t have one of these cards."),
-                      SizedBox(height: 6.h),
-                      SizedBox(
-                        height: 68.h,
-                        child: const CheckBoxWidget(
-                          text:
-                              "By using this service, you agree to\nBrebix Inc.’s Terms of service and\nPrivacy Policy",
-                        ),
+                      SizedBox(height: 30.h),
+                      InkWell(
+                        onTap: () {
+                          showCupertinoModalPopup(
+                            barrierColor: Colors.black.withOpacity(0.7),
+                            context: context,
+                            builder: (context) {
+                              return const UploadBottomSheet();
+                            },
+                          );
+                        },
+                        child: const CardUpload(title: "Back Of Document"),
                       ),
-                      SizedBox(height: 40.h),
+                      SizedBox(height: 160.h),
                       Button2(
                         text: "Save And Continue",
-                        onPress: () {
-                          Navigator.pushNamed(
-                              context, VerificationIdScreen.routeName);
-                        },
+                        onPress: () {},
                       ),
                     ],
                   ),
