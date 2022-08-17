@@ -1,3 +1,4 @@
+import 'package:aderis_health/login/widgets/checkbox.dart';
 import 'package:aderis_health/util/input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -52,6 +53,10 @@ class AddressScreen extends StatelessWidget {
                       width: 320.w,
                       child:
                           const InputField(hint: "Address", label: "Address"),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 10.w),
+                      child: const CheckBoxWidget(text: "Locate Me"),
                     ),
                     SizedBox(height: 30.h),
                     addressCardProviderData.addressItems[0],
