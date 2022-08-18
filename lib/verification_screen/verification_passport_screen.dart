@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../home_page/home_page.dart';
 import '../util/button2.dart';
 import '../util/card_upload.dart';
 import '../util/text_styles.dart';
@@ -80,7 +81,12 @@ class VerificationPassportScreen extends StatelessWidget {
                       SizedBox(height: 160.h),
                       Button2(
                         text: "Save And Continue",
-                        onPress: () {},
+                        onPress: () {
+                          Navigator.pushNamed(
+                            context,
+                            HomePageScreen.routeName,
+                          );
+                        },
                       ),
                     ],
                   ),

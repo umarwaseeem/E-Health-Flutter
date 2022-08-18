@@ -4,6 +4,7 @@ import 'package:aderis_health/util/input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../create_profile/create_profile_screen.dart';
 import '../forgot_password/forgot_password_screen.dart';
 import '../login/login_screen.dart';
 import '../util/text_styles.dart';
@@ -80,7 +81,12 @@ class SignUpScreen extends StatelessWidget {
                   SizedBox(height: 100.h),
                   SizedBox(
                     width: 390.w,
-                    child: Button2(text: "SignUp", onPress: () {}),
+                    child: Button2(
+                        text: "SignUp",
+                        onPress: () {
+                          Navigator.of(context).pushReplacementNamed(
+                              CreateProfileScreen.routeName);
+                        }),
                   ),
                   SizedBox(height: 16.h),
                   TextButton(

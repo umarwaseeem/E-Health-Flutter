@@ -82,3 +82,8 @@ var subtitleStyle = const TextStyle(
   fontWeight: FontWeight.w400,
   fontFamily: "Poppins",
 );
+
+var tabTextStyle = const TextStyle(
+  fontSize: 13,
+  fontWeight: FontWeight.w400,
+);
