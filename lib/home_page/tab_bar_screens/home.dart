@@ -33,6 +33,7 @@ class Home extends StatelessWidget {
                 child: DefaultTabController(
                   length: 4,
                   child: TabBar(
+
                     indicatorSize: TabBarIndicatorSize.label,
                     indicatorColor: mainColor,
                     labelColor: Colors.black,
