@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'add_payment_method/providers/payment_method_provider.dart';
 import 'address_screen/providers/address_card_provider.dart';
+import 'doctor_details_screen/providers/doctor_service_provider.dart';
 import 'forgot_password/providers/forgot_password_provider.dart';
 import 'home_page/home_page.dart';
 import 'routes/routes.dart';
@@ -34,6 +35,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<IdVerificationProvider>(
           create: (_) => IdVerificationProvider(),
+        ),
+        ChangeNotifierProvider<DoctorServiceProvider>(
+          create: (_) => DoctorServiceProvider(),
         ),
       ],
       child: MaterialApp(

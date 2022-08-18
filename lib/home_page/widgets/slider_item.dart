@@ -1,21 +1,26 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../doctor_details_screen/doctor_details_screen.dart';
 import '../../util/colors.dart';
 
 class SliderItem extends StatefulWidget {
-  SliderItem({
+  const SliderItem({
     Key? key,
-    this.visible,
     required this.image,
     required this.id,
+    required this.doctorName,
+    required this.doctorDepartment,
+    required this.doctorDays,
+    required this.experienceYears,
   }) : super(key: key);
 
   final String image;
   final int id;
-  bool? visible;
+  final String doctorName;
+  final String doctorDepartment;
+  final String doctorDays;
+  final String experienceYears;
 
   @override
   State<SliderItem> createState() => _SliderItemState();
@@ -32,8 +37,15 @@ class _SliderItemState extends State<SliderItem> {
         MediaQuery.of(context).size.width,
         MediaQuery.of(context).size.height,
       ),
-      builder: (context, w) => BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
+      builder: (context, w) => InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const DoctorDetailsScreen(),
+            ),
+          );
+        },
         child: Column(
           children: [
             Container(
@@ -60,9 +72,53 @@ class _SliderItemState extends State<SliderItem> {
                   ),
                 ],
               ),
-              child: Text(
-                widget.id.toString(),
-                style: const TextStyle(fontSize: 40),
+              child: Container(
+                margin: const EdgeInsets.only(left: 20, top: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      widget.doctorName,
+                      style: const TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    Text(
+                      widget.doctorDepartment,
+                      style: const TextStyle(
+                        color: Colors.grey,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    SizedBox(height: 8.h),
+                    Row(
+                      children: [
+                        Text(
+                          widget.doctorDays,
+                          style: TextStyle(
+                            color: mainColor,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        Text(
+                          "| ${widget.experienceYears}",
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        const Icon(
+                          Icons.arrow_right_alt_outlined,
+                          color: Colors.grey,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
