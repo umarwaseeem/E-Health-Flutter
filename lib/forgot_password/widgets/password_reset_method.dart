@@ -1,3 +1,4 @@
+import 'package:aderis_health/util/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -38,7 +39,7 @@ class _PasswordResetMethodState extends State<PasswordResetMethod> {
           height: 130.h,
           width: 370.w,
           decoration: BoxDecoration(
-            color: widget.selected ? Colors.black45 : Colors.transparent,
+            color: widget.selected ? greyishColor : Colors.transparent,
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
               color: Colors.grey,

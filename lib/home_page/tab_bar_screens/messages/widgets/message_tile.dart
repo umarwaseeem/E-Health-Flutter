@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../chat_screen.dart';
+
 class MessageTile extends StatefulWidget {
   MessageTile(
       {Key? key,
@@ -28,7 +30,14 @@ class _MessageTileState extends State<MessageTile> {
       child: Column(
         children: [
           ListTile(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ChatScreen(),
+                ),
+              );
+            },
             leading: CircleAvatar(
               backgroundColor: Colors.black45,
               radius: 30,

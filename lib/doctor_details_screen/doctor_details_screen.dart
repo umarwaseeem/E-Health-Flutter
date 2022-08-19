@@ -2,13 +2,22 @@ import 'package:aderis_health/util/button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 import 'providers/doctor_service_provider.dart';
 import 'widgets/doctor_list_tile.dart';
 import 'widgets/online_consult_widget.dart';
 
-class DoctorDetailsScreen extends StatelessWidget {
+class DoctorDetailsScreen extends StatefulWidget {
   const DoctorDetailsScreen({Key? key}) : super(key: key);
+
+  @override
+  State<DoctorDetailsScreen> createState() => _DoctorDetailsScreenState();
+}
+
+class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
+  DateTime? _selectedDay;
+  DateTime? _focusedDay;
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +114,21 @@ class DoctorDetailsScreen extends StatelessWidget {
                       if (doctorServiceProviderData.services[0].isSelected)
                         const OnlineConsultWidget(),
                       if (doctorServiceProviderData.services[1].isSelected)
-                        const Text("Calender"),
+                        TableCalendar(
+                          selectedDayPredicate: (day) {
+                            return isSameDay(_selectedDay, day);
+                          },
+                          onDaySelected: (selectedDay, focusedDay) {
+                            setState(() {
+                              _selectedDay = selectedDay;
+                              _focusedDay =
+                                  focusedDay; // update `_focusedDay` here as well
+                            });
+                          },
+                          firstDay: DateTime.utc(2010, 10, 16),
+                          lastDay: DateTime.utc(2030, 3, 14),
+                          focusedDay: DateTime.now(),
+                        ),
                       SizedBox(height: 30.h),
                       Center(
                         child: SizedBox(
@@ -115,6 +138,7 @@ class DoctorDetailsScreen extends StatelessWidget {
                               text: "Get Instant Service", onPress: () {}),
                         ),
                       ),
+                      SizedBox(height: 20.h),
                     ],
                   ),
                 ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/upcoming_appointment_card.dart';
 import '../widgets/appointment_type_widget.dart';
 
 class AppointmentTypeProvider extends ChangeNotifier {
@@ -14,8 +13,6 @@ class AppointmentTypeProvider extends ChangeNotifier {
       selected: true,
     ),
   ];
-
-
 
   void selectAppointmentType(int index) {
     for (var element in appointmentType) {

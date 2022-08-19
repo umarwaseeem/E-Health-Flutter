@@ -40,6 +40,7 @@ dependencies:
   dotted_border: ^2.0.0+2
   carousel_slider: ^4.1.1
   visibility_detector: ^0.3.3
+  table_calendar: ^3.0.6
 
 dev_dependencies:
   flutter_test:
