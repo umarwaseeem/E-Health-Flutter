@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../util/colors.dart';
+import '../prescription_detail.dart';
 
 class PrescriptionCard extends StatelessWidget {
   const PrescriptionCard({Key? key}) : super(key: key);
@@ -90,7 +91,14 @@ class PrescriptionCard extends StatelessWidget {
                   height: 30.h,
                   width: 100.w,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PrescriptionDetail(),
+                        ),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       primary: const Color.fromRGBO(87, 98, 182, 0.2),
                       shape: RoundedRectangleBorder(
