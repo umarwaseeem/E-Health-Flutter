@@ -1,3 +1,5 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,10 +15,10 @@ import 'verification_screen/providers/id_verification_provider.dart';
 import 'util/colors.dart';
 
 void main() {
-  // runApp(
-  //   DevicePreview(enabled: !kReleaseMode, builder: (context) => const MyApp()),
-  // );
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(enabled: !kReleaseMode, builder: (context) => const MyApp()),
+  );
+  // runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
